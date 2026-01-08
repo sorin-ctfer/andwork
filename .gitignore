@@ -52,23 +52,18 @@ Thumbs.db
 ## Development Documentation
 # Kiro AI development specs and documentation
 .kiro/
-*.kiro/
 
-# Development notes and planning documents
+# Development notes and planning documents (specific patterns)
 *_extract.md
 *_notes.md
 *_plan.md
 *_research.md
 *_implementation.md
 *_summary.md
-*_guide.md
 *_status.md
 *_solution.md
 *_improvements.md
 *_bug-fix.md
-*_design.md
-*_requirements.md
-*_tasks.md
 *_technical-research*.md
 
 # Temporary development files
@@ -76,6 +71,10 @@ TODO.md
 NOTES.md
 CHANGELOG.draft.md
 ROADMAP.draft.md
+BUILD-SUCCESS.md
+BUILD-SUCCESS-SUMMARY.md
+RELEASE-SETUP-GUIDE.md
+SIGNING-AND-ICON-GUIDE.md
 
 ## Backup and temporary files
 *.bak
@@ -86,6 +85,7 @@ ROADMAP.draft.md
 *~
 .*.swp
 .*.swo
+icon_backup/
 
 ## Test and debug files
 test_output/
