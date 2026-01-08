@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class LoginFragment extends Fragment {
+public class IdCardFragment extends Fragment {
     private static final String PREFS = "id_login";
     private static final String KEY_FRONT = "front_json";
     private static final String KEY_BACK = "back_json";
@@ -74,7 +74,7 @@ public class LoginFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_id_card, container, false);
     }
 
     @Override

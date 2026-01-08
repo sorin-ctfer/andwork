@@ -46,3 +46,95 @@ Thumbs.db
 .env
 .env.*
 *.secrets.*
+
+## Development Documentation
+# Kiro AI development specs and documentation
+.kiro/
+*.kiro/
+
+# Development notes and planning documents
+*_extract.md
+*_notes.md
+*_plan.md
+*_research.md
+*_implementation.md
+*_summary.md
+*_guide.md
+*_status.md
+*_solution.md
+*_improvements.md
+*_bug-fix.md
+*_design.md
+*_requirements.md
+*_tasks.md
+*_technical-research*.md
+
+# Temporary development files
+TODO.md
+NOTES.md
+CHANGELOG.draft.md
+ROADMAP.draft.md
+
+## Backup and temporary files
+*.bak
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+## Test and debug files
+test_output/
+debug_logs/
+*.test.log
+*.debug.log
+
+## Documentation drafts (keep only final docs)
+docs/drafts/
+docs/wip/
+
+## Personal development files
+.personal/
+personal_notes/
+scratch/
+
+## Database files (if any local testing)
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+## Generated files
+generated/
+auto-generated/
+
+## Coverage reports
+coverage/
+*.coverage
+htmlcov/
+
+## Python (if using Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+## Node modules (if using any JS tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## Misc
+*.orig
+*.rej
+.project
+.classpath
+.settings/
