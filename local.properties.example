@@ -1,0 +1,13 @@
+## This file is an example template for local.properties
+# Copy this file to local.properties and update with your actual SDK path
+#
+# Location of the Android SDK. This is only used by Gradle.
+# Replace the path below with your actual Android SDK location
+#
+# Windows example:
+# sdk.dir=C\:\\Users\\YourUsername\\AppData\\Local\\Android\\Sdk
+#
+# macOS/Linux example:
+# sdk.dir=/Users/YourUsername/Library/Android/sdk
+#
+sdk.dir=C\:\\Users\\YourUsername\\AppData\\Local\\Android\\Sdk

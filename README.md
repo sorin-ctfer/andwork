@@ -56,11 +56,21 @@ git clone <repository-url>
 cd MovingHacker
 ```
 
-2. 使用Android Studio打开项目
+2. 配置Android SDK路径：
+```bash
+# 复制示例配置文件
+cp local.properties.example local.properties
 
-3. 等待Gradle同步完成
+# 编辑local.properties，设置你的Android SDK路径
+# Windows: sdk.dir=C\:\\Users\\YourUsername\\AppData\\Local\\Android\\Sdk
+# macOS/Linux: sdk.dir=/Users/YourUsername/Library/Android/sdk
+```
 
-4. 构建APK：
+3. 使用Android Studio打开项目，或使用命令行构建
+
+4. 等待Gradle同步完成
+
+5. 构建APK：
 ```bash
 ./gradlew assembleRelease
 ```
@@ -70,11 +80,21 @@ cd MovingHacker
 gradlew.bat assembleRelease
 ```
 
-5. 生成的APK位于：`app/build/outputs/apk/py311/release/`
+6. 生成的APK位于：`app/build/outputs/apk/py311/release/`
 
 ## 配置说明
 
-### AI功能配置
+### 必需配置
+
+#### 1. Android SDK配置
+创建 `local.properties` 文件（参考 `local.properties.example`）：
+```properties
+sdk.dir=你的Android SDK路径
+```
+
+### 可选配置
+
+#### 2. AI功能配置
 首次使用AI功能需要配置API密钥：
 1. 打开应用，进入AI聊天界面
 2. 点击设置图标
@@ -82,7 +102,7 @@ gradlew.bat assembleRelease
 4. 输入API密钥和模型名称
 5. 保存配置
 
-### OCR功能配置
+#### 3. OCR功能配置
 使用OCR功能需要腾讯云API密钥：
 1. 打开应用，进入首页
 2. 点击OCR配置
@@ -107,6 +127,45 @@ gradlew.bat assembleRelease
 - **SSH客户端**: JSch
 - **代码编辑器**: CodeEditor
 
+## 项目结构
+
+```
+MovingHacker/
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/example/movinghacker/
+│   │   │   ├── ai/                    # AI功能模块
+│   │   │   │   ├── handlers/          # Function handlers
+│   │   │   │   ├── AIService.java
+│   │   │   │   └── ...
+│   │   │   ├── MainActivity.java
+│   │   │   ├── HomeFragment.java
+│   │   │   ├── WebRequestFragment.java
+│   │   │   ├── FileManagerFragment.java
+│   │   │   ├── TerminalFragment.java
+│   │   │   ├── PythonEditorFragment.java
+│   │   │   └── ...
+│   │   └── res/                       # 资源文件
+│   └── build.gradle.kts
+├── gradle/
+├── build.gradle.kts
+├── settings.gradle.kts
+├── gradle.properties                  # Gradle配置（已提交）
+├── local.properties.example           # SDK配置示例
+└── README.md
+```
+
+## 常见问题
+
+### Q: 构建失败，提示找不到SDK
+A: 请确保已创建 `local.properties` 文件并正确配置Android SDK路径。
+
+### Q: Python库安装失败
+A: Chaquopy会自动下载Python库，请确保网络连接正常。如果下载失败，可以尝试使用代理或更换网络。
+
+### Q: AI功能无法使用
+A: 请确保已在应用内配置正确的API密钥和模型名称。
+
 ## 开源协议
 
 本项目采用MIT协议开源。
@@ -118,3 +177,4 @@ gradlew.bat assembleRelease
 ## 免责声明
 
 本工具仅供学习和研究使用，请勿用于非法用途。使用本工具造成的任何后果由使用者自行承担。
+
