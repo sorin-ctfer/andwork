@@ -1,5 +1,7 @@
 package com.example.movinghacker;
 
+import android.content.Context;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -28,11 +30,14 @@ public class IdCardOcrClient {
     private static final String VERSION = "2018-11-19";
     private static final String REGION = "ap-guangzhou";
 
-    public static String idCardOcr(String imageBase64, String imageUrl, String cardSide) throws Exception {
-        String secretId = BuildConfig.TENCENT_SECRET_ID;
-        String secretKey = BuildConfig.TENCENT_SECRET_KEY;
+    public static String idCardOcr(Context context, String imageBase64, String imageUrl, String cardSide) throws Exception {
+        // 从配置管理器获取密钥
+        OcrConfigManager configManager = OcrConfigManager.getInstance(context);
+        String secretId = configManager.getSecretId();
+        String secretKey = configManager.getSecretKey();
+        
         if (secretId == null || secretId.isEmpty() || secretKey == null || secretKey.isEmpty()) {
-            throw new IllegalStateException("未配置腾讯云密钥。请在 gradle.properties 中设置 TENCENT_SECRET_ID / TENCENT_SECRET_KEY。");
+            throw new IllegalStateException("未配置腾讯云OCR密钥。请先在设置中配置Secret ID和Secret Key。");
         }
 
         JSONObject payload = new JSONObject();

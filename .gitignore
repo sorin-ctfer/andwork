@@ -16,7 +16,7 @@ captures/
 
 ## Local config (do not commit)
 local.properties
-gradle.properties
+keystore.properties
 
 ## IDE
 *.iml

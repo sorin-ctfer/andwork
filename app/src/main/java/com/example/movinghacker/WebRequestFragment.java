@@ -48,8 +48,9 @@ public class WebRequestFragment extends Fragment {
     private TextView noHeadersText;
     private TextView bodyLabel;
     private RadioGroup bodyTypeGroup;
-    private RadioButton bodyTypeText;
+    private RadioButton bodyTypeForm;
     private RadioButton bodyTypeJson;
+    private RadioButton bodyTypeText;
     private RadioButton bodyTypeFile;
     private TextInputLayout bodyInputLayout;
     private TextInputEditText bodyInput;
@@ -149,8 +150,9 @@ public class WebRequestFragment extends Fragment {
         noHeadersText = view.findViewById(R.id.no_headers_text);
         bodyLabel = view.findViewById(R.id.body_label);
         bodyTypeGroup = view.findViewById(R.id.body_type_group);
-        bodyTypeText = view.findViewById(R.id.body_type_text);
+        bodyTypeForm = view.findViewById(R.id.body_type_form);
         bodyTypeJson = view.findViewById(R.id.body_type_json);
+        bodyTypeText = view.findViewById(R.id.body_type_text);
         bodyTypeFile = view.findViewById(R.id.body_type_file);
         bodyInputLayout = view.findViewById(R.id.body_input_layout);
         bodyInput = view.findViewById(R.id.body_input);
@@ -314,7 +316,9 @@ public class WebRequestFragment extends Fragment {
     
     private void updateContentTypeHeader() {
         String contentType;
-        if (bodyTypeJson.isChecked()) {
+        if (bodyTypeForm.isChecked()) {
+            contentType = "application/x-www-form-urlencoded";
+        } else if (bodyTypeJson.isChecked()) {
             contentType = "application/json";
         } else {
             contentType = "text/plain";

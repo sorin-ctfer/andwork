@@ -34,6 +34,8 @@ public class HomeFragment extends Fragment {
         moduleGrid.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         List<ModuleItem> modules = Arrays.asList(
+                new ModuleItem("ai_chat", "AI助手",
+                        R.drawable.ic_ai_chat, "智能AI对话，可调用所有模块功能"),
                 new ModuleItem("id_card", "身份证识别",
                         android.R.drawable.ic_menu_camera, "扫描和识别身份证信息"),
                 new ModuleItem("web_request", "高级网页请求",

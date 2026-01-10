@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">MovingHacker</string>
+    
+    <!-- AI Chat Module -->
+    <string name="ai_chat_title">AI助手</string>
+    <string name="ai_assistant">AI助手</string>
+    <string name="ai_chat_empty">开始与AI对话吧！</string>
+    <string name="ai_welcome_message">你好！我是AI助手，有什么可以帮你的吗？</string>
+    <string name="ai_chat_input_hint">输入消息...</string>
+    <string name="ai_input_hint">输入消息...</string>
+    <string name="send">发送</string>
+    <string name="ai_config_title">AI配置</string>
+    <string name="ai_config_description">请配置AI API信息以开始使用</string>
+    <string name="ai_api_url">API地址</string>
+    <string name="ai_api_key">API Key</string>
+    <string name="ai_model">模型名称</string>
+    <string name="ai_config">配置</string>
+    <string name="ai_clear_history">清空历史</string>
+    <string name="ai_menu_config">配置</string>
+    <string name="ai_menu_clear_history">清空历史</string>
+    <string name="ai_hacking_mode">Hacking Mode</string>
+    <string name="copy">复制</string>
+    <string name="copied">已复制</string>
+    <string name="stop">停止</string>
 </resources>

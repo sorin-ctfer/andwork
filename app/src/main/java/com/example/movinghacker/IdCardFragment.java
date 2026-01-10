@@ -150,6 +150,23 @@ public class IdCardFragment extends Fragment {
     }
 
     private void onRecognizeClicked() {
+        // 检查OCR配置
+        OcrConfigManager ocrConfigManager = OcrConfigManager.getInstance(requireContext());
+        if (!ocrConfigManager.isConfigured()) {
+            // 显示配置对话框
+            OcrConfigDialog dialog = new OcrConfigDialog(requireContext());
+            dialog.setOnConfigSavedListener(() -> {
+                // 配置保存后重新尝试识别
+                performRecognition();
+            });
+            dialog.show();
+            return;
+        }
+        
+        performRecognition();
+    }
+    
+    private void performRecognition() {
         int methodId = methodGroup.getCheckedButtonId();
         int sideId = sideGroup.getCheckedButtonId();
         String cardSide = sideId == R.id.side_back ? "BACK" : "FRONT";
@@ -191,7 +208,7 @@ public class IdCardFragment extends Fragment {
                         throw new IllegalStateException("图片读取失败。");
                     }
                 }
-                String responseStr = IdCardOcrClient.idCardOcr(base64, finalImageUrl, cardSide);
+                String responseStr = IdCardOcrClient.idCardOcr(requireContext(), base64, finalImageUrl, cardSide);
                 JSONObject root = new JSONObject(responseStr);
                 JSONObject resp = root.optJSONObject("Response");
                 if (resp != null && resp.has("Error")) {

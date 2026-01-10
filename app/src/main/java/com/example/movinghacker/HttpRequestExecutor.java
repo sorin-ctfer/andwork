@@ -119,11 +119,19 @@ public class HttpRequestExecutor {
         if (request.getFileUri() != null) {
             return buildMultipartBody(request);
         } else if (request.getBody() != null && !request.getBody().isEmpty()) {
-            MediaType mediaType = MediaType.parse("text/plain; charset=utf-8");
-            
             String body = request.getBody().trim();
+            MediaType mediaType;
+            
+            // 检测内容类型
             if (body.startsWith("{") || body.startsWith("[")) {
+                // JSON格式
                 mediaType = MediaType.parse("application/json; charset=utf-8");
+            } else if (body.contains("=") && !body.contains("\n")) {
+                // 表单数据格式 (key=value 或 key1=value1&key2=value2)
+                mediaType = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+            } else {
+                // 纯文本
+                mediaType = MediaType.parse("text/plain; charset=utf-8");
             }
             
             return RequestBody.create(request.getBody(), mediaType);
